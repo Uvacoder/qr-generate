@@ -4,8 +4,15 @@ import Heading from './Heading.vue'
 </script>
 
 <template>
-  <Flex justify="space-between">
-    <Heading :level="1">QR-code generator</Heading>
-    <button>Github</button>
+  <Flex class="header" justify="space-between" align="center">
+    <Heading :level="1">Simple QR</Heading>
   </Flex>
 </template>
+
+<style scoped>
+.header {
+  border-bottom: 1px solid #eaeaea;
+  padding-block-end: 1rem;
+  margin-block: 4rem;
+}
+</style>

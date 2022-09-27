@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
 import VueQrCode from '@chenfengyuan/vue-qrcode'
+import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 
 import App from './App.vue'
 
@@ -9,7 +9,7 @@ import '@sigveh/basic-ui/dist/style.css'
 
 const app = createApp(App)
 
-app.use(createPinia())
+app.use(autoAnimatePlugin)
 app.component(VueQrCode.name, VueQrCode)
 
 app.mount('#app')

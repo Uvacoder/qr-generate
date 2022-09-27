@@ -2,41 +2,57 @@
 import { ref } from 'vue'
 
 import { Input, Button, Form, Flex } from '@sigveh/basic-ui'
+import { ArrowRightIcon } from 'vue-tabler-icons'
 import Container from '@/components/Container.vue'
-import Heading from '@/components/Heading.vue'
 import Preview from '@/components/Preview.vue'
+import Header from '@/components/Header.vue'
 
 const url = ref('')
 const value = ref('')
 
+const loading = ref(false)
+
 function onSubmit() {
-  value.value = url.value
+  loading.value = true
+  setTimeout(() => {
+    value.value = url.value
+    loading.value = false
+  }, 500)
 }
 </script>
 
 <template>
-  <Container>
+  <Container v-auto-animate>
+    <Header />
     <Flex direction="column" align="stretch">
-      <Heading :level="1">QR-code generator</Heading>
       <Form @submit="onSubmit">
-        <Flex justify="stretch">
-          <Input
-            placeholder="https://example.com"
-            type="url"
-            v-model="url"
-            style="flex-grow: 1"
-          />
-          <Button theme="primary" type="submit">Generate</Button>
+        <Flex>
+          <Input placeholder="https://example.com" type="url" v-model="url" />
+          <Button theme="primary" type="submit" :loading="loading">
+            Generate
+            <template #icon-right>
+              <ArrowRightIcon size="16" />
+            </template>
+          </Button>
         </Flex>
       </Form>
-      <Preview :url="value" />
     </Flex>
+    <Preview :url="value" />
   </Container>
 </template>
 
 <style>
 #app {
-  padding-block: 4rem;
   height: 100%;
+}
+
+.b-button__content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.b-input {
+  flex-grow: 1;
 }
 </style>
