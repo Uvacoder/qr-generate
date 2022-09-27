@@ -9,8 +9,10 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@chenfengyuan/vue-qrcode": "^2.0.0",
     "@sigveh/basic-ui": "^1.0.3",
     "pinia": "^2.0.21",
+    "qrcode": "^1.5.1",
     "vue": "^3.2.38"
   },
   "devDependencies": {
