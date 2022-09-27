@@ -27,7 +27,12 @@ function onSubmit() {
     <Flex direction="column" align="stretch">
       <Form @submit="onSubmit">
         <Flex>
-          <Input placeholder="https://example.com" type="url" v-model="url" />
+          <Input
+            name="url"
+            placeholder="https://example.com"
+            type="url"
+            v-model="url"
+          />
           <Button theme="primary" type="submit" :loading="loading">
             Generate
             <template #icon-right>
